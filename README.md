@@ -144,4 +144,8 @@ Parts of this project are based on the following repositories:
 <img src="img/img9.PNG"/>
 <img src="img/img10.PNG"/>
 <img src="img/vis.PNG"/>
+<img src="img/img_intensity_screenshot_11.01.2022.png"/>
 <img src="img/height_map_screenshot_11.01.2022.png"/>
+<img src="img/labels vs. detected objects_screenshot_08.01.2022.png"/>
+<img src="img/Figure_1.png"/>
+<img src="img/Figure_2.png"/>
