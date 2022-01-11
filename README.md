@@ -131,3 +131,16 @@ Parts of this project are based on the following repositories:
 
 ## License
 [License](LICENSE.md)
+
+<img src="img/range_image_screenshot_18.11.2021.png"/>
+<img src="img/img1.PNG"/>
+<img src="img/img2.PNG"/>
+<img src="img/img3.PNG"/>
+<img src="img/img4.PNG"/>
+<img src="img/img5.PNG"/>
+<img src="img/img6.PNG"/>
+<img src="img/img7.PNG"/>
+<img src="img/img8.PNG"/>
+<img src="img/img9.PNG"/>
+<img src="img/img10.PNG"/>
+<img src="img/vis.PNG"/>
