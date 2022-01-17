@@ -283,3 +283,4 @@ In the next step, configs_det.use_labels_as_objects is set to True. It will make
 <img src="img/Figure_2.png"/>
 
 ## Project Summary
+It can be concluded from this project that the range image was extracted without loss from Lidar data. The stabilized tracking can be done using Lidar data. In the visualization of PCL, car components can be identified. The image intensity helps in underrating the surrounding environment and height intensity helps to detect the vehicle as per its original size. In steps 3 and 4, the detected objects are matched against ground truth labels to calculate recall and precision. The resnet/darknet and YOLO algorithm is used in this project to convert, detect, evaluate the Lidar point cloud.
