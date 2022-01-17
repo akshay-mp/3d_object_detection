@@ -251,5 +251,34 @@ The content of detection before next task.
 In this task, the detections needs to be converted into metric coordinates in vehicle space. The convertion format is in the form [1, x, y, z, h, w, l, yaw], where 1 denotes the class id for the object type vehicle.
 
 ## Step 4: Performance Evaluation for Object Detection
+
+#### Preparation for Compute intersection-over-union between labels and detections (ID_S4_EX1):
+- data_filename = 'training_segment-1005081002024129653_5313_150_5333_150_with_camera_labels.tfrecord
+- show_only_frames = [50, 51]
+- model = 'darknet' # options are 'darknet', 'resnet'
+- sequence = "1"
+- model_path='darknet' # # options are 'darknet', 'fpn-resnet'
+- exec_data = ['pcl_from_rangeimage']
+- exec_detection = ['bev_from_pcl', 'detect_objects', 'validate_object_labels', 'measure_detection_performance']
+- exec_tracking = []
+- exec_visualization = ['show_detection_performance']
+- configs_det = det.load_configs(model_name="darknet")
+
+In this task, the detections and the ground truth table are compared to check if any object has been (a) missed (false negative), (b) successfully detected (true positive) or (c) has been falsely reported (false positive). 
+
+#### Preparation for Compute precision and recall (ID_S4_EX3)
+- data_filename = 'training_segment-1005081002024129653_5313_150_5333_150_with_camera_labels.tfrecord
+- show_only_frames = [50, 150]
+- exec_data = ['pcl_from_rangeimage']
+- exec_detection = ['bev_from_pcl', 'detect_objects', 'validate_object_labels', 'measure_detection_performance']
+- exec_tracking = []
+- exec_visualization = ['show_detection_performance']
+- configs_det = det.load_configs(model_name="darknet")
+
 <img src="img/Figure_1.png"/>
+In this task, the frames are processed by an evaluation algorithm one by one to evaluate the recall and precision.
+
+In the next step, configs_det.use_labels_as_objects is set to True. It will make sure the algorithm is working as desired.
+
 <img src="img/Figure_2.png"/>
+
