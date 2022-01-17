@@ -241,9 +241,15 @@ In this task, to fill the height channel of the lidar data from PCL, sort is use
 - exec_tracking = []
 - exec_visualization = ['show_objects_in_bev_labels_in_camera']
 - configs_det = det.load_configs(model_name="fpn_resnet")
-Note: Comment out line 144, 175, 196 & 197 from student_pcl file to get the desired output.
 
+##### Note: Comment out line 144, 175, 196 & 197 from student_pcl file to get the desired output.
+<img src="img/detect.PNG"/>
+The content of detection before next task. 
+
+#### Preparation for Extract 3D bounding boxes from model response (ID_S3_EX2):
 <img src="img/labels vs. detected objects_screenshot_08.01.2022.png"/>
+In this task, the detections needs to be converted into metric coordinates in vehicle space. The convertion format is in the form [1, x, y, z, h, w, l, yaw], where 1 denotes the class id for the object type vehicle.
 
+## Step 4: Performance Evaluation for Object Detection
 <img src="img/Figure_1.png"/>
 <img src="img/Figure_2.png"/>
