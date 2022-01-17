@@ -132,8 +132,46 @@ Parts of this project are based on the following repositories:
 ## License
 [License](LICENSE.md)
 
+## 3D Object Detection
+
+In this project, at first lidar point cloud is computed from the range image and then visualized, in the second step the Lidar PCL is used to create BEV, intensity map and height map, in the third step BEV map is used to detect 3D objects, in the last step the object detection performance is computed.
+
+The step-by-step explanation of the process and results are shown below.
+
+### Step 1: Compute Lidar Point-Cloud from Range Image
+
+#### Preparation for Visualize range image channels (ID_S1_EX1):
+- data_filename = 'training_segment-1005081002024129653_5313_150_5333_150_with_camera_labels.tfrecord' # Sequence 1
+- show_only_frames = [0, 1]
+- model = 'darknet' # options are 'darknet', 'resnet'
+- sequence = "1"
+- model_path='darknet' # # options are 'darknet', 'fpn-resnet'
+- exec_data = []
+- exec_detection = []
+- exec_tracking = []
+- exec_visualization = ['show_range_image']
+
+
 <img src="img/range_image_screenshot_18.11.2021.png"/>
+
+The two data channel i.e range and intensity extracted from the Lidar data. The range image above is mapped onto 8-bit channels of the OpenCV image to amke sure no data is lost. 
+
+#### Preparation for Visualize lidar point-cloud (ID_S1_EX2):
+- data_filename = 'training_segment-10963653239323173269_1924_000_1944_000_with_camera_labels.tfrecord'
+- show_only_frames = [0, 200]
+- model = 'darknet' # options are 'darknet', 'resnet'
+- sequence = "1"
+- model_path='darknet' # # options are 'darknet', 'fpn-resnet'
+- exec_data = []
+- exec_detection = []
+- exec_tracking = []
+- exec_visualization = ['show_pcl']
+
+The below 10 images shows the vehicles from varying degree of visibility from Point cloud (PCL). The Open3D library is used to visualize and feel the nature of the PCL in 3D viewer.
+
 <img src="img/img1.PNG"/>
+
+
 <img src="img/img2.PNG"/>
 <img src="img/img3.PNG"/>
 <img src="img/img4.PNG"/>
@@ -143,6 +181,8 @@ Parts of this project are based on the following repositories:
 <img src="img/img8.PNG"/>
 <img src="img/img9.PNG"/>
 <img src="img/img10.PNG"/>
+
+
 <img src="img/vis.PNG"/>
 <img src="img/img_intensity_screenshot_11.01.2022.png"/>
 <img src="img/height_map_screenshot_11.01.2022.png"/>
