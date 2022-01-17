@@ -151,39 +151,71 @@ The step-by-step explanation of the process and results are shown below.
 - exec_tracking = []
 - exec_visualization = ['show_range_image']
 
-
 <img src="img/range_image_screenshot_18.11.2021.png"/>
 
-The two data channel i.e range and intensity extracted from the Lidar data. The range image above is mapped onto 8-bit channels of the OpenCV image to amke sure no data is lost. 
+The two data channels, i.e., range and intensity, are extracted from the Lidar data. The range image above is mapped onto 8-bit channels of the OpenCV image, it is to make sure no data is lost. 
 
 #### Preparation for Visualize lidar point-cloud (ID_S1_EX2):
 - data_filename = 'training_segment-10963653239323173269_1924_000_1944_000_with_camera_labels.tfrecord'
 - show_only_frames = [0, 200]
 - model = 'darknet' # options are 'darknet', 'resnet'
-- sequence = "1"
+- sequence = "3"
 - model_path='darknet' # # options are 'darknet', 'fpn-resnet'
 - exec_data = []
 - exec_detection = []
 - exec_tracking = []
 - exec_visualization = ['show_pcl']
 
-The below 10 images shows the vehicles from varying degree of visibility from Point cloud (PCL). The Open3D library is used to visualize and feel the nature of the PCL in 3D viewer.
+The below images shows the vehicles from varying degree of visibility from Point cloud (PCL). The Open3D library is used, to visualize and feel the nature of the PCL in a 3D viewer.
 
 <img src="img/img1.PNG"/>
-
+1. In front view visualization of PCL, on the right side, the car with the trailer moving away can be seen and on the left side, cars lined up in a straight line facing towards can be seen.
+The rear bumbper of trailer and the front bumper of left side car be seen as dark blue.
 
 <img src="img/img2.PNG"/>
+2. In this top view visualization, the bumper of trailer can be seen in green and the rest of the cars hood can be seen in green. 
+
 <img src="img/img3.PNG"/>
+3. In slight left view visualization, the cars can be seen moving towards and a few cars parked at the nearby station. The car bumper and spoilers can be detected from the image.
+
 <img src="img/img4.PNG"/>
+4. In this over all top view, the cars hood can be seen in green.
+
 <img src="img/img5.PNG"/>
+5. In rear view visualization, the cars behind this car can be seen approaching and bumpers in dark blue.
+
 <img src="img/img6.PNG"/>
+6. In this rear right view visualization, the cars can be seen approaching. The cars hood can be seen in green, the front shield in light blue and the lower in dark blue.
+
 <img src="img/img7.PNG"/>
+7. In this front right view visualization, the cars can be seen approaching. The cars hood can be seen in green, the front shield in light blue and the lower in dark blue.
+
 <img src="img/img8.PNG"/>
+
 <img src="img/img9.PNG"/>
+
 <img src="img/img10.PNG"/>
 
+Last three images confirm the vehicle location and approach with respect to front and rear bumpers. 
+
+To summarize, most of the car's headlight, front and rear bumper, front and rear wind shield, trunk space, trailer, the hood can be seen.
+
+### Step 2: Create Birds-Eye View from Lidar PCL
+
+#### Preparation for Convert sensor coordinates to BEV-map coordinates (ID_S2_EX1):
+- data_filename = 'training_segment-1005081002024129653_5313_150_5333_150_with_camera_labels.tfrecord
+- show_only_frames = [0, 1]
+- model = 'darknet' # options are 'darknet', 'resnet'
+- sequence = "1"
+- model_path='darknet' # # options are 'darknet', 'fpn-resnet'
+- exec_data = ['pcl_from_rangeimage']
+- exec_detection = ['bev_from_pcl']
+- exec_tracking = []
+- exec_visualization = []
 
 <img src="img/vis.PNG"/>
+In this task, the sensor coordinates are converted to BEV map coordinates, to obtain a BEV map containing the actual Lidar data from PCL. 
+
 <img src="img/img_intensity_screenshot_11.01.2022.png"/>
 <img src="img/height_map_screenshot_11.01.2022.png"/>
 <img src="img/labels vs. detected objects_screenshot_08.01.2022.png"/>
