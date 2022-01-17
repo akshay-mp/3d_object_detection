@@ -282,3 +282,4 @@ In the next step, configs_det.use_labels_as_objects is set to True. It will make
 
 <img src="img/Figure_2.png"/>
 
+## Project Summary
