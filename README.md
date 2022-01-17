@@ -198,7 +198,7 @@ The rear bumbper of trailer and the front bumper of left side car be seen as dar
 
 Last three images confirm the vehicle location and approach with respect to front and rear bumpers. 
 
-To summarize, most of the car's headlight, front and rear bumper, front and rear wind shield, trunk space, trailer, the hood can be seen.
+To summarize, most of the car's headlight, front and rear bumper, front and rear windshield, trunk space, trailer, the hood can be seen from stabilized images.
 
 ### Step 2: Create Birds-Eye View from Lidar PCL
 
@@ -214,10 +214,36 @@ To summarize, most of the car's headlight, front and rear bumper, front and rear
 - exec_visualization = []
 
 <img src="img/vis.PNG"/>
-In this task, the sensor coordinates are converted to BEV map coordinates, to obtain a BEV map containing the actual Lidar data from PCL. 
+In this task, the sensor coordinates are converted to BEV map coordinates, to obtain a BEV map containing the actual Lidar data from PCL. From the visualization, two cars in front can be easily identified, and the rest can be identified with difficulty.
+
+#### Preparation for Compute intensity layer of the BEV map (ID_S2_EX2):
+Similar to above (ID_S2_EX1).
 
 <img src="img/img_intensity_screenshot_11.01.2022.png"/>
+In this task, the BEV map coordinates of all points are identified and the intensity channel of the topmost lidar PCL is assigned to the BEV map and then the intensity image is normalized using percentile to outline the dark and bright region.
+
+#### Preparation for Compute height layer of the BEV map (ID_S2_EX3):
+Similar to above (ID_S2_EX1).
+
 <img src="img/height_map_screenshot_11.01.2022.png"/>
+In this task, to fill the height channel of the lidar data from PCL, sort is used to the previous task, and height is normalized.
+
+## Step 3: Model-based Object Detection in BEV Image
+
+#### Preparation for Add a second model from a GitHub repo (ID_S3_EX1):
+- data_filename = 'training_segment-1005081002024129653_5313_150_5333_150_with_camera_labels.tfrecord
+- show_only_frames = [50, 51]
+- model = 'resnet' # options are 'darknet', 'resnet'
+- sequence = "1"
+- model_path='fpn-resnet' # # options are 'darknet', 'fpn-resnet'
+- exec_data = ['pcl_from_rangeimage', 'load_image']
+- exec_detection = ['bev_from_pcl', 'detect_objects']
+- exec_tracking = []
+- exec_visualization = ['show_objects_in_bev_labels_in_camera']
+- configs_det = det.load_configs(model_name="fpn_resnet")
+Note: Comment out line 144, 175, 196 & 197 from student_pcl file to get the desired output.
+
 <img src="img/labels vs. detected objects_screenshot_08.01.2022.png"/>
+
 <img src="img/Figure_1.png"/>
 <img src="img/Figure_2.png"/>
