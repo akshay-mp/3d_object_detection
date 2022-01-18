@@ -168,26 +168,26 @@ The two data channels, i.e., range and intensity, are extracted from the Lidar d
 
 The below images shows the vehicles from varying degree of visibility from Point cloud (PCL). The Open3D library is used, to visualize and feel the nature of the PCL in a 3D viewer.
 
-<img src="img/img1.PNG"/>
+<img src="img/img1.png"/>
 1. In front view visualization of PCL, on the right side, the car with the trailer moving away can be seen and on the left side, cars lined up in a straight line facing towards can be seen.
 The rear bumbper of trailer and the front bumper of left side car be seen as dark blue.
 
-<img src="img/img2.PNG"/>
+<img src="img/img2.png"/>
 2. In this top view visualization, the bumper of trailer can be seen in green and the rest of the cars hood can be seen in green. 
 
-<img src="img/img3.PNG"/>
+<img src="img/img3.png"/>
 3. In slight left view visualization, the cars can be seen moving towards and a few cars parked at the nearby station. The car bumper and spoilers can be detected from the image.
 
-<img src="img/img4.PNG"/>
+<img src="img/img4.png"/>
 4. In this over all top view, the cars hood can be seen in green.
 
-<img src="img/img5.PNG"/>
+<img src="img/img5.png"/>
 5. In rear view visualization, the cars behind this car can be seen approaching and bumpers in dark blue.
 
-<img src="img/img6.PNG"/>
+<img src="img/img6.png"/>
 6. In this rear right view visualization, the cars can be seen approaching. The cars hood can be seen in green, the front shield in light blue and the lower in dark blue.
 
-<img src="img/img7.PNG"/>
+<img src="img/img7.png"/>
 7. In this front right view visualization, the cars can be seen approaching. The cars hood can be seen in green, the front shield in light blue and the lower in dark blue.
 
 <img src="img/img8.PNG"/>
